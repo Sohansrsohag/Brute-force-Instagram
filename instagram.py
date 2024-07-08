@@ -19,14 +19,14 @@ from argparse import ArgumentParser, ArgumentTypeError
 
 
 class Engine(object):
-    def __init__(self, username, threads, passlist_path, is_color):
+    def __init__(self, miriambuttaci, threads, passlist_path, is_color):
         self.resume = False
         self.is_alive = True
         self.threads = threads
-        self.username = username
+        self.username = miriambuttaci
         self.passlist_path = passlist_path
         self.display = Display(is_color=is_color)
-        self.bruter = Bruter(username, threads, passlist_path)
+        self.bruter = Bruter(miriambuttaci, threads, passlist_path)
 
     def get_user_resp(self):
         return self.display.prompt(
@@ -35,8 +35,8 @@ class Engine(object):
 
     def write_to_file(self, password):
         with open(credentials, "at") as f:
-            data = "Username: {}\nPassword: {}\n\n".format(
-                self.username.title(), password
+            data = "miriambuttaci: {}\nPassword: {}\n\n".format(
+                self.miriambuttaci.title(), password
             )
             f.write(data)
 
